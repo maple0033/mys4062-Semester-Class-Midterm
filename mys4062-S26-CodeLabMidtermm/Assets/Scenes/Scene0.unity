@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242566355442450465, guid: 30ffa6f4baafaa84eab139fea9265c5e, type: 3}
       propertyPath: m_Name
-      value: RedCube1 (2)
+      value: RedCube4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -484,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242566355442450465, guid: 30ffa6f4baafaa84eab139fea9265c5e, type: 3}
       propertyPath: m_Name
-      value: RedCube1
+      value: RedCube2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1560,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242566355442450465, guid: 30ffa6f4baafaa84eab139fea9265c5e, type: 3}
       propertyPath: m_Name
-      value: RedCube1 (3)
+      value: RedCube5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1617,7 +1617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242566355442450465, guid: 30ffa6f4baafaa84eab139fea9265c5e, type: 3}
       propertyPath: m_Name
-      value: RedCube1 (4)
+      value: RedCube6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1896,7 +1896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242566355442450465, guid: 30ffa6f4baafaa84eab139fea9265c5e, type: 3}
       propertyPath: m_Name
-      value: RedCube
+      value: RedCube1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2056,7 +2056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242566355442450465, guid: 30ffa6f4baafaa84eab139fea9265c5e, type: 3}
       propertyPath: m_Name
-      value: RedCube1 (1)
+      value: RedCube3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
