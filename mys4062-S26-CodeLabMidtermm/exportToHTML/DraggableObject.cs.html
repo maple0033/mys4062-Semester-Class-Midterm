@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>DraggableObject.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #569cd6;}
+.s1 { color: #dcdcdc;}
+.s2 { color: #d69d85;}
+.s3 { color: #57a64a;}
+</style>
+</head>
+<body bgcolor="#1e1e1e">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DraggableObject.cs</font>
+</center></td></tr></table>
+<pre><span class="s0">using </span><span class="s1">System;</span>
+<span class="s0">using </span><span class="s1">System.IO;</span>
+<span class="s0">using </span><span class="s1">UnityEngine;</span>
+
+<span class="s0">public class </span><span class="s1">DraggableObject : MonoBehaviour</span>
+<span class="s1">{</span>
+    <span class="s0">private </span><span class="s1">Vector3 currentMousePosition;</span>
+    
+    <span class="s0">string  </span><span class="s1">filePath = </span><span class="s2">&quot;/Resources/DraggableObject/&quot;</span><span class="s1">;</span>
+    <span class="s3">// Start is called once before the first execution of Update after the MonoBehaviour is created</span>
+    <span class="s0">void </span><span class="s1">Start()</span>
+    <span class="s1">{</span>
+        <span class="s1">filePath = Application.dataPath + filePath; </span><span class="s3">//set filepath </span>
+        <span class="s0">string </span><span class="s1">fileContents = File.ReadAllText(filePath + name + </span><span class="s2">&quot;.json&quot;</span><span class="s1">); </span><span class="s3">//lets put the saved data in a string</span>
+        <span class="s1">Debug.Log(fileContents); </span><span class="s3">//print it out</span>
+        
+        <span class="s1">Vector3 savePosition = JsonUtility.FromJson&lt;Vector3&gt;(fileContents); </span><span class="s3">//turn it back into a vector 3 for us</span>
+        <span class="s1">transform.position = savePosition; </span><span class="s3">//set position to that</span>
+    <span class="s1">}</span>
+
+    <span class="s3">// Update is called once per frame</span>
+    <span class="s0">void </span><span class="s1">Update()</span>
+    <span class="s1">{</span>
+        
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">OnMouseDrag()</span>
+    <span class="s1">{</span>
+        <span class="s1">transform.position = GetMousePosition();</span>
+    <span class="s1">}</span>
+
+    <span class="s1">Vector3 GetMousePosition() </span><span class="s3">//this function lets you check if the mouse drags </span>
+    <span class="s1">{</span>
+        <span class="s1">currentMousePosition =  Input.mousePosition;</span>
+        <span class="s1">currentMousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z;</span>
+        <span class="s3">//clipping plane near = is something is near this, it will render</span>
+        <span class="s3">//clipping plane far = if something is far, unnecessary things will not get rendered</span>
+        
+        <span class="s3">//now the mouse is a current point on your screen, the game can track that</span>
+        <span class="s3">//it also knows how DEEP it is because of the transform.position</span>
+
+        <span class="s1">currentMousePosition = Camera.main.ScreenToWorldPoint(currentMousePosition);</span>
+        <span class="s3">//this is gonna take the position on the screen and put it back to the world</span>
+
+        <span class="s0">return </span><span class="s1">currentMousePosition; </span><span class="s3">//we will return this value as a VECTOR3 as indicated by the </span>
+        <span class="s3">//function being a Vector3 not a void</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">void </span><span class="s1">OnApplicationQuit()</span>
+    <span class="s1">{</span>
+        <span class="s0">string </span><span class="s1">jsonPosition = JsonUtility.ToJson(transform.position, </span><span class="s0">true</span><span class="s1">); </span><span class="s3">//if you say false it will not pretty print</span>
+        <span class="s1">Debug.Log(jsonPosition);</span>
+        
+        <span class="s1">File.WriteAllText(filePath + name + </span><span class="s2">&quot;.json&quot;</span><span class="s1">, jsonPosition); </span><span class="s3">//</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
